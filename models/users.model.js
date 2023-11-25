@@ -52,8 +52,9 @@ module.exports = (sequelize, DataTypes) => {
         tableName: "users"
     });
 
-    // users.associate = (models) => {
-    //     users.belongsTo(models.roles,{foreignKey: 'role_id'});
-    // };
+    users.associate = (models) => {
+        users.belongsTo(models.roles,{foreignKey: 'role_id'});
+    };
+    
     return users;
 }
