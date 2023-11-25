@@ -14,14 +14,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        created_at:{
+        createdAt: {
+            field: 'created_at',
             type: DataTypes.DATE,
-            allowNull: true
+            allowNull: false,
         },
-        updated_at:{
+        updatedAt: {
+            field: 'updated_at',
             type: DataTypes.DATE,
-            allowNull: true,
-        }
+            allowNull: false,
+        },
     },{
         tableName: "users"
     });

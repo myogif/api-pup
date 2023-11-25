@@ -24,29 +24,36 @@ module.exports = (sequelize, DataTypes) => {
         }, 
         gender: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
         },
         no_hp: {
-            type: DataTypes.INTEGER(20),
-            allowNull: false,
-        }, 
+            type: DataTypes.STRING(20),
+            allowNull: true,
+        },
         alamat: {
             type: DataTypes.STRING(100),
             allowNull: false
-        }, created_at:{
-            type: DataTypes.DATE,
-            allowNull: true
         },
-        updated_at:{
-            type: DataTypes.DATE,
+        image:{
+            type: DataTypes.STRING(100),
             allowNull: true,
-        }
+        },
+        createdAt: {
+            field: 'created_at',
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        updatedAt: {
+            field: 'updated_at',
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
     },{
         tableName: "users"
     });
 
-    users.associate = (models) => {
-        users.belongsTo(models.roles,{foreignKey: 'role_id'});
-    };
+    // users.associate = (models) => {
+    //     users.belongsTo(models.roles,{foreignKey: 'role_id'});
+    // };
     return users;
 }
